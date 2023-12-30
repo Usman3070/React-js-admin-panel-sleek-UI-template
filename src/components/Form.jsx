@@ -41,7 +41,7 @@ const Form = ({ type }) => {
         toast.error(data.error || (type === "signup" ? "Registration failed" : "Login failed"));
 
       } else {
-        dispatch(setCredentials(JSON.stringify(data)))
+        dispatch(setCredentials((data)))
         type==="signin"&&navigate("/")
 
         toast.success(type === "signup" ? "Registration successful! Please check your email." : "Login successful!");
@@ -53,7 +53,7 @@ const Form = ({ type }) => {
   };
 
   return (
-    <div className={`form-control ${type}-form`}>
+    <div className={`data-form-control data-${type}-form`}>
       <form onSubmit={handleSubmit}>
         <h2>{type === "signup" ? "signup" : "signin"}</h2>
 

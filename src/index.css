@@ -1,6 +1,9 @@
 /*https://bytewebster.com/*/
 /*https://bytewebster.com/*/
 /*https://bytewebster.com/*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css");
 * {
@@ -9,7 +12,7 @@
   box-sizing: border-box;
 }
 
-body {
+#authentication {
   font-family: "Poppins", sans-serif;
   display: flex;
   justify-content: center;
@@ -19,7 +22,7 @@ body {
   font-size: 14px;
 }
 
-.container {
+.data-container {
   background-color: #fff;
   width: 760px;
   max-width: 100vw;
@@ -27,12 +30,12 @@ body {
   position: relative;
   overflow-x: hidden;
 }
-.container .forms-container {
+.data-container .data-forms-container {
   position: relative;
   width: 50%;
   text-align: center;
 }
-.container .forms-container .form-control {
+.data-container .data-forms-container .data-form-control {
   position: absolute;
   width: 100%;
   display: flex;
@@ -41,22 +44,22 @@ body {
   height: 480px;
   transition: all 0.5s ease-in;
 }
-.container .forms-container .form-control h2 {
+.data-container .data-forms-container .data-form-control h2 {
   font-size: 2rem;
 }
-.container .forms-container .form-control form {
+.data-container .data-forms-container .data-form-control form {
   display: flex;
   flex-direction: column;
   margin: 0px 30px;
 }
-.container .forms-container .form-control form input {
+.data-container .data-forms-container .data-form-control form input {
   margin: 10px 0px;
   border: none;
   padding: 15px;
   background-color: #efefef;
   border-radius: 5px;
 }
-.container .forms-container .form-control form button {
+.data-container .data-forms-container .data-form-control form button {
   border: none;
   padding: 20px;
   margin-top: 5px;
@@ -65,46 +68,46 @@ body {
   color: #fff;
   cursor: pointer;
 }
-.container .forms-container .form-control form button:focus {
+.data-container .data-forms-container .data-form-control form button:focus {
   outline: none;
 }
-.container .forms-container .form-control span {
+.data-container .data-forms-container .data-form-control span {
   margin: 10px 0px;
 }
-.container .forms-container .form-control .socials i {
+.data-container .data-forms-container .data-form-control .socials i {
   margin: 0 5px;
   color: #fff;
   border-radius: 50%;
 }
-.container .forms-container .form-control .socials .fa-facebook-f {
+.data-container .data-forms-container .data-form-control .socials .fa-facebook-f {
   padding: 5px 8px;
   background-color: #2563eb;
 }
-.container .forms-container .form-control .socials .fa-google-plus-g {
+.data-container .data-forms-container .data-form-control .socials .fa-google-plus-g {
   padding: 5px 4px;
   background-color: #db4a39;
 }
-.container .forms-container .form-control .socials .fa-linkedin-in {
+.data-container .data-forms-container .data-form-control .socials .fa-linkedin-in {
   padding: 5px 6px;
   background-color: #2563eb;
 }
-.container .forms-container .form-control.signup-form {
+.data-container .data-forms-container .data-form-control.data-signup-form {
   opacity: 0;
   z-index: 1;
   left: 200%;
 }
-.container .forms-container .form-control.signin-form {
+.data-container .data-forms-container .data-form-control.data-signin-form {
   opacity: 1;
   z-index: 2;
   left: 0%;
 }
-.container .intros-container {
+.data-container .data-intros-container {
   position: relative;
   left: 50%;
   width: 50%;
   text-align: center;
 }
-.container .intros-container .intro-control {
+.data-container .data-intros-container .data-intro-control {
   position: absolute;
   width: 100%;
   display: flex;
@@ -115,10 +118,10 @@ body {
   background: linear-gradient(170deg, #34d399, #059669);
   transition: all 0.5s ease-in;
 }
-.container .intros-container .intro-control .intro-control__inner {
+.data-container .data-intros-container .data-intro-control .data-intro-control__inner {
   margin: 0px 30px;
 }
-.container .intros-container .intro-control button {
+.data-container .data-intros-container .data-intro-control button {
   border: none;
   padding: 15px 30px;
   background-color: #10b981;
@@ -127,89 +130,89 @@ body {
   margin: 10px 0px;
   cursor: pointer;
 }
-.container .intros-container .intro-control button:focus, .container .intros-container .intro-control button:hover {
+.data-container .data-intros-container .data-intro-control button:focus, .data-container .data-intros-container .data-intro-control button:hover {
   outline: none;
   background-color: #059669;
 }
-.container .intros-container .intro-control h3,
-.container .intros-container .intro-control p {
+.data-container .data-intros-container .data-intro-control h3,
+.data-container .data-intros-container .data-intro-control p {
   margin: 10px 0px;
 }
-.container .intros-container .intro-control.signin-intro {
+.data-container .data-intros-container .data-intro-control.data-signin-intro {
   opacity: 1;
   z-index: 2;
 }
-.container .intros-container .intro-control.signup-intro {
+.data-container .data-intros-container .data-intro-control.data-signup-intro {
   opacity: 0;
   z-index: 1;
 }
 
-.change .forms-container .form-control.signup-form {
+.data-change .data-forms-container .data-form-control.data-signup-form {
   opacity: 1;
   z-index: 2;
   transform: translateX(-100%);
 }
-.change .forms-container .form-control.signup-form button {
+.data-change .data-forms-container .data-form-control.data-signup-form button {
   background-color: #711DB0 !important;
 }
-.change .forms-container .form-control.signin-form {
+.data-change .data-forms-container .data-form-control.data-signin-form {
   opacity: 0;
   z-index: 1;
   transform: translateX(-100%);
 }
-.change .intros-container .intro-control {
+.data-change .data-intros-container .data-intro-control {
   transform: translateX(-100%);
   background:#711DB0;
 }
-.change .intros-container .intro-control #signin-btn{
+.data-change .data-intros-container .data-intro-control #signin-btn{
   background-color: #7E30E1;
 }
-.change .intros-container .intro-control.signin-intro {
+.data-change .data-intros-container .data-intro-control.data-signin-intro {
   opacity: 0;
   z-index: 1;
 }
-.change .intros-container .intro-control.signup-intro {
+.data-change .data-intros-container .data-intro-control.data-signup-intro {
   opacity: 1;
   z-index: 2;
 }
 
 @media screen and (max-width: 480px) {
-  .container {
+  .data-container {
     height: 100vh;
     display: flex;
     flex-direction: column;
   }
-  .container .forms-container {
+  .data-container .data-forms-container {
     order: 2;
     width: 100%;
     height: 50vh;
   }
-  .container .forms-container .form-control {
+  .data-container .data-forms-container .data-form-control {
     position: absolute;
     height: 50vh;
   }
-  .container .forms-container .form-control.signup-form {
+  .data-container .data-forms-container .data-form-control.data-signup-form {
     left: 0%;
     margin-top: 70px;
   }
-  .container .intros-container {
+  .data-container .data-intros-container {
     order: 1;
     width: 100%;
     left: 0%;
     height: 40vh;
   }
-  .container .intros-container .intro-control {
+  .data-container .data-intros-container .data-intro-control {
     position: absolute;
     height: 40vh;
   }
 
-  .change .forms-container .form-control.signup-form {
+  .data-change .data-forms-container .data-form-control.data-signup-form {
     transform: translateX(0%);
   }
-  .change .forms-container .form-control.signin-form {
+  .data-change .data-forms-container .data-form-control.data-signin-form {
     transform: translateX(0%);
   }
-  .change .intros-container .intro-control {
+  .data-change .intros-container .data-intro-control {
     transform: translateX(0%);
   }
 }

@@ -5,13 +5,13 @@ const Auth = () => {
   const [isSignup, setIsSignup] = useState(false);
 
   return (
-    <div className={`container ${isSignup ? 'change' : ''}`}>
-      <div className="forms-container">
+    <div className={`data-container ${isSignup ? 'data-change' : ''}`}>
+      <div className="data-forms-container">
         <Form type={isSignup ? 'signup' : 'signin'}/>
       </div>
-      <div className="intros-container">
-        <div className="intro-control signin-intro">
-          <div className="intro-control__inner">
+      <div className="data-intros-container">
+        <div className="data-intro-control data-signin-intro">
+          <div className="data-intro-control__inner">
             <h2>Welcome back!</h2>
             <p>
               Welcome back! We are so happy to have you here. It's great to see you again.
@@ -22,8 +22,8 @@ const Auth = () => {
             </button>
           </div>
         </div>
-        <div className="intro-control signup-intro">
-          <div className="intro-control__inner">
+        <div className="data-intro-control data-signup-intro">
+          <div className="data-intro-control__inner">
             <h2>Come join us!</h2>
             <p>
               We are so excited to have you here. If you haven't already, create an account

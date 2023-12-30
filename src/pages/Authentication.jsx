@@ -1,7 +1,7 @@
 import Auth from '../components/Auth'
 const Authentication = () => {
   return (
-    <div><Auth/></div>
+    <div id="authentication"><Auth/></div>
   )
 }
 

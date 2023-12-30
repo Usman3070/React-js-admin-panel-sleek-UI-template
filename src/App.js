@@ -4,13 +4,16 @@ import React from 'react'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import PrivateRoute from "./utils/PrivateRoute.jsx";
 import ConfirmEmail from "./components/ConfirmEmail.jsx";
+import SimpleLayout from "./layout/SimpleLayout.js";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
      <Route path="/confirm-email/:token" element={<ConfirmEmail />} />
     <Route path="/auth" element={<Authentication/>}/>
     <Route path="" element={<PrivateRoute />}>
+    <Route path="/" element={<SimpleLayout />} >
     <Route exact path="/" element={<Home />} />
+    </Route>
     </Route>
     </Route>,
   ),
