@@ -1,7 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-const BASE_URL=process.env.REACT_APP_API_KEY
+import { useDispatch } from 'react-redux';
+import { setCredentials } from "../store/slices/authSlice";
+
+
+const BASE_URL=process.env.REACT_APP_BASE_URL
 const Form = ({ type }) => {
+  const dispatch=useDispatch()
+  const navigate=useNavigate()
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,12 +35,17 @@ const Form = ({ type }) => {
           ...(type === "signup" ? { confirm_password: confirmPassword,username:username } : {}),
         }),
       });
+      const data = await response.json();
 
       if (!response.ok) {
-        const data = await response.json();
         toast.error(data.error || (type === "signup" ? "Registration failed" : "Login failed"));
+
       } else {
+        dispatch(setCredentials(JSON.stringify(data)))
+        type==="signin"&&navigate("/")
+
         toast.success(type === "signup" ? "Registration successful! Please check your email." : "Login successful!");
+
       }
     } catch (error) {
       toast.error("Error during form submission:", error);
@@ -80,11 +92,11 @@ const Form = ({ type }) => {
         {type === "signin" && (
           <>
             <input
-              type="text"
-              placeholder="Username"
+              type="email"
+              placeholder="Email"
               required
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type="password"
