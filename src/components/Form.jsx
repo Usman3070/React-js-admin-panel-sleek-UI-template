@@ -1,29 +1,22 @@
 import React, { useState } from "react";
-
-const Form = ({ type, onSubmit }) => {
+import { toast } from "react-toastify";
+const BASE_URL=process.env.REACT_APP_API_KEY
+const Form = ({ type }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Clear any previous error message
-    setErrorMessage("");
-
     try {
-      // Determine the endpoint based on the form type
-      const endpoint = type === "signup" ? "http://127.0.0.1:8000/auth/register" : "http://127.0.0.1:8000/auth/login";
+      const endpoint = type === "signup" ? `${BASE_URL}/auth/register` : `${BASE_URL}/auth/login`;
 
-      // Check if passwords match (only for signup)
       if (type === "signup" && password !== confirmPassword) {
-        setErrorMessage("Passwords do not match");
+        toast.error("Passwords do not match");
         return;
       }
 
-      // Send data to the backend
       const response = await fetch(endpoint, {
         method: "POST",
         headers: {
@@ -36,17 +29,14 @@ const Form = ({ type, onSubmit }) => {
         }),
       });
 
-      // Handle the response from the backend
       if (!response.ok) {
-        // Handle registration or login failure
         const data = await response.json();
-        setErrorMessage(data.error || (type === "signup" ? "Registration failed" : "Login failed"));
+        toast.error(data.error || (type === "signup" ? "Registration failed" : "Login failed"));
       } else {
-        // Handle successful registration or login
-        console.log(type === "signup" ? "Registration successful!" : "Login successful!");
+        toast.success(type === "signup" ? "Registration successful! Please check your email." : "Login successful!");
       }
     } catch (error) {
-      console.error("Error during form submission:", error);
+      toast.error("Error during form submission:", error);
     }
   };
 

@@ -3,25 +3,11 @@ import Form from './Form';
 
 const Auth = () => {
   const [isSignup, setIsSignup] = useState(false);
-  const handleFormSubmit = (data) => {
-    console.log(`Form submitted: ${isSignup ? 'signup' : 'signin'}`, data);
-    // Example: Send a POST request to your backend API
-    // fetch('your-backend-api-url', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(data),
-    // })
-    //   .then(response => response.json())
-    //   .then(data => console.log('Success:', data))
-    //   .catch(error => console.error('Error:', error));
-  };
 
   return (
     <div className={`container ${isSignup ? 'change' : ''}`}>
       <div className="forms-container">
-        <Form type={isSignup ? 'signup' : 'signin'} onSubmit={handleFormSubmit} />
+        <Form type={isSignup ? 'signup' : 'signin'}/>
       </div>
       <div className="intros-container">
         <div className="intro-control signin-intro">
