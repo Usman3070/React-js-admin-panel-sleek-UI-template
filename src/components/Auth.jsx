@@ -26,7 +26,11 @@ const Auth = () => {
                 Welcome back! We are so happy to have you here. It's great to
                 see you again. We hope you had a safe and enjoyable time away.
               </p>
-              <button id="signup-btn" onClick={() => setIsSignup(true)}>
+              <button
+                className="form-button"
+                id="signup-btn"
+                onClick={() => setIsSignup(true)}
+              >
                 No account yet? Signup.
               </button>
             </div>
@@ -39,7 +43,11 @@ const Auth = () => {
                 create an account to get access to exclusive offers, rewards,
                 and discounts.
               </p>
-              <button id="signin-btn" onClick={() => setIsSignup(false)}>
+              <button
+                className="form-button"
+                id="signin-btn"
+                onClick={() => setIsSignup(false)}
+              >
                 Already have an account? Signin.
               </button>
             </div>

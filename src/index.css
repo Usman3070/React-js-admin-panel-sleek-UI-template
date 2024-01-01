@@ -75,7 +75,7 @@
   /* Light text color */
 }
 
-.data-container .data-forms-container .data-form-control form button {
+.data-container .data-forms-container .data-form-control form .form-button {
   border: none;
   padding: 20px;
   margin-top: 5px;
@@ -86,7 +86,7 @@
   cursor: pointer;
 }
 
-.data-container .data-forms-container .data-form-control form button:focus {
+.data-container .data-forms-container .data-form-control form .form-button:focus {
   outline: none;
 }
 
@@ -151,7 +151,7 @@
   margin: 0px 30px;
 }
 
-.data-container .data-intros-container .data-intro-control button {
+.data-container .data-intros-container .data-intro-control .form-button {
   border: none;
   padding: 15px 30px;
   background-color: #00adb5;
@@ -162,8 +162,8 @@
   cursor: pointer;
 }
 
-.data-container .data-intros-container .data-intro-control button:focus,
-.data-container .data-intros-container .data-intro-control button:hover {
+.data-container .data-intros-container .data-intro-control .form-button:focus,
+.data-container .data-intros-container .data-intro-control .form-button:hover {
   outline: none;
   background-color: #034f40;
   /* Dark button hover color */
@@ -190,7 +190,7 @@
   transform: translateX(-100%);
 }
 
-.data-change .data-forms-container .data-form-control.data-signup-form button {
+.data-change .data-forms-container .data-form-control.data-signup-form .form-button {
   background-color: #590b70 !important;
   /* Dark button color */
 }
