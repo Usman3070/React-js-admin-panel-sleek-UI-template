@@ -10,10 +10,24 @@ const DomainSearch = () => {
 
     // Here you can call a function to fetch and update suggestions based on the value
     // For simplicity, let's assume suggestions are hard-coded for now
-    const fakeSuggestions = ["example.com", "example.net", "example.org"];
+    const fakeSuggestions = [
+        "example.com",
+        "example.net",
+        "example.org",
+        "example1.com",
+        "example2.net",
+        "example3.org",
+        "example4.com",
+      ];
     setSuggestions(fakeSuggestions.filter(suggestion => suggestion.includes(value)));
   };
-
+  
+  const handleSuggestionClick = (selectedSuggestion) => {
+    // Set the search term to the selected suggestion
+    setSearchTerm(selectedSuggestion);
+    // Clear suggestions
+    setSuggestions([]);
+  };
   return (
     <>
       <h1 className="text-3xl text-center md:text-5xl p-2 text-yellow-300 tracking-loose">
@@ -44,9 +58,9 @@ const DomainSearch = () => {
 
       {/* Display suggestions only when there is input */}
       {searchTerm && (
-        <ul className="mt-2 max-w-md mx-auto bg-white border rounded-md shadow-md overflow-hidden">
+        <ul className={`mt-2 max-w-md mx-auto bg-white border rounded-md shadow-md overflow-auto ${suggestions.length > 4 ? 'max-h-40' : ''}`}>
           {suggestions.map((suggestion, index) => (
-            <li key={index} className="py-2 px-4 text-black hover:bg-gray-100">{suggestion}</li>
+            <li key={index} className="py-2 px-4 text-black hover:bg-gray-100" onClick={() => handleSuggestionClick(suggestion)}>{suggestion}</li>
           ))}
         </ul>
       )}
