@@ -1,13 +1,32 @@
+
 import React, { useState } from "react";
+import { FaShoppingCart } from "react-icons/fa";
+
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const DomainSearch = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [isAvailable, setIsAvailable] = useState(false);
 
-  const handleInputChange = (event) => {
+  const handleInputChange = async (event) => {
     const value = event.target.value;
     setSearchTerm(value);
 
+    try {
+        const response = await fetch(`${BASE_URL}/domain/domain-check/?domain_name=${encodeURIComponent(value)}`);
+  
+        if (response.ok) {
+          const data = await response.json();
+          setIsAvailable(data.is_available);
+        } else {
+          console.error('Failed to fetch suggestions:', response.statusText);
+          setIsAvailable(false);
+        }
+      } catch (error) {
+        console.error('Error during fetch:', error);
+      }
+  
     // Here you can call a function to fetch and update suggestions based on the value
     // For simplicity, let's assume suggestions are hard-coded for now
     const fakeSuggestions = [
@@ -57,13 +76,15 @@ const DomainSearch = () => {
       </form>
 
       {/* Display suggestions only when there is input */}
+
       {searchTerm && (
-        <ul className={`mt-2 max-w-md mx-auto bg-white border rounded-md shadow-md overflow-auto ${suggestions.length > 4 ? 'max-h-40' : ''}`}>
-          {suggestions.map((suggestion, index) => (
-            <li key={index} className="py-2 px-4 text-black hover:bg-gray-100" onClick={() => handleSuggestionClick(suggestion)}>{suggestion}</li>
-          ))}
-        </ul>
-      )}
+          <div className="mt-2 max-w-md mx-auto bg-white border rounded-md shadow-md overflow-hidden flex justify-between items-center">
+            <div className="py-2 px-4 text-black hover:bg-gray-100" onClick={() => handleSuggestionClick(searchTerm)}>
+              {searchTerm}
+            </div>
+            {isAvailable && <FaShoppingCart className="text-2xl text-gray-500 pr-2" />}
+          </div>
+        )}
     </>
   );
 };

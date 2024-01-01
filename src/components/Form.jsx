@@ -17,8 +17,6 @@ const Form = ({ type }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  console.log(BASE_URL);
-  console.log("id", CLIENT_ID);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
