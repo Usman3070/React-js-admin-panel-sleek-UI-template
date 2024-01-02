@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Form from "./Form";
-import video from "../background.mp4";
+import video from "../assets/videos/background.mp4";
 
 const Auth = () => {
   const [isSignup, setIsSignup] = useState(false);

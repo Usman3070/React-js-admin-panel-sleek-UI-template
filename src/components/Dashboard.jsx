@@ -70,7 +70,7 @@ const Dashboard = () => {
                         <h2 class="text-gray-500 text-lg font-semibold pb-1">Usuarios</h2>
                         <div class="my-1"></div> 
                         <div class="bg-gradient-to-r from-cyan-300 to-cyan-500 h-px mb-6"></div> 
-                        <div class="chart-container" style="position: relative; height:150px; width:100%">
+                        <div class="chart-container" style={{ position: 'relative', height: '150px', width: '100%' }}>
                             <canvas id="usersChart"></canvas>
                         </div>
                     </div>
@@ -79,7 +79,11 @@ const Dashboard = () => {
                         <h2 class="text-gray-500 text-lg font-semibold pb-1">Comercios</h2>
                         <div class="my-1"></div> 
                         <div class="bg-gradient-to-r from-cyan-300 to-cyan-500 h-px mb-6"></div> 
-                        <div class="chart-container" style="position: relative; height:150px; width:100%">
+                        <div class="chart-container" style={{
+    position: 'relative',
+    height: '150px',
+    width: '100%',
+  }}>
                             <canvas id="commercesChart"></canvas>
                         </div>
                     </div>

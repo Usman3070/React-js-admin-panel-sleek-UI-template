@@ -42,9 +42,7 @@ const DomainSearch = () => {
   };
   
   const handleSuggestionClick = (selectedSuggestion) => {
-    // Set the search term to the selected suggestion
     setSearchTerm(selectedSuggestion);
-    // Clear suggestions
     setSuggestions([]);
   };
   return (
@@ -75,7 +73,6 @@ const DomainSearch = () => {
         </svg>
       </form>
 
-      {/* Display suggestions only when there is input */}
 
       {searchTerm && (
           <div className="mt-2 max-w-md mx-auto bg-white border rounded-md shadow-md overflow-hidden flex justify-between items-center">
