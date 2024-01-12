@@ -9,7 +9,6 @@ import Endorsment from '../components/Endorsment';
 const Home = () => {
   return (
     <div>
-    <Carousal/>
     <SearchDomain/>
     <Features/>
     <Testimonials/>
